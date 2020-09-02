@@ -30,7 +30,7 @@ import com.abiyedanagogo.noteapp.R;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class TimePickerMainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+public class AddNotificationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
     Calendar c;
     private TextView chosenTimeText;
@@ -137,7 +137,7 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
         }
         if (item.getItemId() == R.id.save) {
             if (c == null) {
-                Toast.makeText(TimePickerMainActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddNotificationActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
             } else {
                 startAlarm(c);
             }
