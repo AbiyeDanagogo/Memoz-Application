@@ -28,7 +28,7 @@
 
         <activity android:name=".notification.AddNotificationActivity" />
         <activity
-            android:name=".notification.NotificationUpdateActivity"
+            android:name=".notification.UpdateNotificationActivity"
             android:parentActivityName=".FirstActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

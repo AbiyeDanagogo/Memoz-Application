@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abiyedanagogo.noteapp.notification.NotificationClass;
 import com.abiyedanagogo.noteapp.notification.NotificationAdapter;
 import com.abiyedanagogo.noteapp.notification.NotificationDatabase;
-import com.abiyedanagogo.noteapp.notification.NotificationUpdateActivity;
+import com.abiyedanagogo.noteapp.notification.UpdateNotificationActivity;
 import com.abiyedanagogo.noteapp.notification.AddNotificationActivity;
 
 import java.util.List;
@@ -76,7 +76,7 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
 
     @Override
     public void onNotificationClick(int position) {
-        Intent intent = new Intent(getActivity(), NotificationUpdateActivity.class);
+        Intent intent = new Intent(getActivity(), UpdateNotificationActivity.class);
         intent.putExtra("ID", notificationClass.get(position).getID());
         startActivity(intent);
 

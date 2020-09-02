@@ -31,7 +31,7 @@ import com.abiyedanagogo.noteapp.R;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class NotificationUpdateActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+public class UpdateNotificationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
     Calendar c;
     private TextView chosenTimeText;
@@ -184,7 +184,7 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
         }
         if (item.getItemId() == R.id.save) {
             if (c == null) {
-                Toast.makeText(NotificationUpdateActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateNotificationActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
             } else {
                 startAlarm(c);
             }

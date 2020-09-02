@@ -50,7 +50,7 @@ public class RingtoneService extends Service {
         stackBuilder.addParentStack(FirstActivity.class);
         stackBuilder.addNextIntent(firstActivityIntent);
 
-        Intent notificationUpdateIntent = new Intent(this, NotificationUpdateActivity.class);
+        Intent notificationUpdateIntent = new Intent(this, UpdateNotificationActivity.class);
         notificationUpdateIntent.putExtra("ID", id);
         stackBuilder.addNextIntent(notificationUpdateIntent);
 

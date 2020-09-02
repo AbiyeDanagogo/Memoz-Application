@@ -5,6 +5,11 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class sets up our notification channels
+ * */
+
 public class App extends Application {
     public static final String CHANNEL_1_ID = "channel1";
     public static final String CHANNEL_2_ID = "channel2";
