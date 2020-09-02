@@ -25,6 +25,10 @@ import com.abiyedanagogo.noteapp.notification.TimePickerMainActivity;
 
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * */
+
 public class NotificationsFragment extends Fragment implements NotificationAdapter.OnNotificationListener {
     Toolbar toolbar;
     RecyclerView recyclerView;

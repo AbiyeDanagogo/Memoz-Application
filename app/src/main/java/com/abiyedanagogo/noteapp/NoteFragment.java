@@ -25,6 +25,10 @@ import com.abiyedanagogo.noteapp.notes.UpdateActivity;
 
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * */
+
 public class NoteFragment extends Fragment implements Adapter.OnNoteListener {
     Toolbar toolbar;
     RecyclerView recyclerView;
