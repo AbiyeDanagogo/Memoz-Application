@@ -1,8 +1,6 @@
 package com.abiyedanagogo.noteapp.notification;
 
 import android.content.Context;
-import android.icu.text.DateFormatSymbols;
-import android.icu.util.ULocale;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abiyedanagogo.noteapp.R;
 
 import java.text.SimpleDateFormat;
-import java.time.Month;
-import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.List;
 
@@ -24,7 +20,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     List<GroupNotification> groupNotifications;
     OnNotificationListener onNotificationListener;
 
-    public NotificationAdapter(Context context, List<GroupNotification> groupNotifications, OnNotificationListener onNotificationListener){
+    public NotificationAdapter(Context context, List<GroupNotification> groupNotifications, OnNotificationListener onNotificationListener) {
         this.inflater = LayoutInflater.from(context);
         this.groupNotifications = groupNotifications;
         this.onNotificationListener = onNotificationListener;
@@ -41,7 +37,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
         String name = groupNotifications.get(position).getName();
         int year = groupNotifications.get(position).getYear();
-        int month = groupNotifications.get(position).getMonth() ;
+        int month = groupNotifications.get(position).getMonth();
         int day = groupNotifications.get(position).getDay();
         int hour = groupNotifications.get(position).getHour();
         int minute = groupNotifications.get(position).getMinute();
@@ -49,9 +45,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         holder.nName.setText(name);
         holder.nYear.setText(String.valueOf(year));
         //holder.nMonth.setText(String.valueOf(month)+"/");
-        holder.nMonth.setText(getMonth(month)+",");
+        holder.nMonth.setText(getMonth(month) + ",");
         holder.nDay.setText(String.valueOf(day));
-        holder.nHour.setText(pad(hour) +":");
+        holder.nHour.setText(pad(hour) + ":");
         holder.nMinute.setText(pad(minute));
 
 
@@ -68,8 +64,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         public ViewHolder(@NonNull View itemView, OnNotificationListener onNotificationListener) {
             super(itemView);
-            nName= itemView.findViewById(R.id.textView);
-            nYear= itemView.findViewById(R.id.textView2);
+            nName = itemView.findViewById(R.id.textView);
+            nYear = itemView.findViewById(R.id.textView2);
             nMonth = itemView.findViewById(R.id.textView3);
             nDay = itemView.findViewById(R.id.textView4);
             nHour = itemView.findViewById(R.id.textView5);
@@ -86,17 +82,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         }
     }
 
-    public interface OnNotificationListener{
+    public interface OnNotificationListener {
         void onNotificationClick(int position);
     }
 
     public String pad(int i) {
-        if(i<10)
-            return "0"+i;
+        if (i < 10)
+            return "0" + i;
         return String.valueOf(i);
     }
 
-    public String getMonth(int month){
+    public String getMonth(int month) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.MONTH, month);
         return new SimpleDateFormat("MMM").format(calendar.getTime());

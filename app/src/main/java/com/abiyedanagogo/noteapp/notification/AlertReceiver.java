@@ -1,31 +1,9 @@
 package com.abiyedanagogo.noteapp.notification;
 
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.app.TaskStackBuilder;
-import androidx.core.content.ContextCompat;
-
-import com.abiyedanagogo.noteapp.FirstActivity;
-import com.abiyedanagogo.noteapp.R;
-
-import static android.content.Context.JOB_SCHEDULER_SERVICE;
-import static com.abiyedanagogo.noteapp.notification.App.CHANNEL_1_ID;
 
 public class AlertReceiver extends BroadcastReceiver {
     @Override
@@ -70,7 +48,7 @@ public class AlertReceiver extends BroadcastReceiver {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(ringIntent);
-        }else {
+        } else {
             context.startService(ringIntent);
         }
 

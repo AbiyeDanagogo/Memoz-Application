@@ -3,7 +3,7 @@
     package="com.abiyedanagogo.noteapp">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -27,11 +27,12 @@
         </activity>
 
         <activity android:name=".notification.TimePickerMainActivity" />
-        <activity android:name=".notification.NotificationUpdateActivity"
+        <activity
+            android:name=".notification.NotificationUpdateActivity"
             android:parentActivityName=".FirstActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FirstActivity"/>
+                android:value=".FirstActivity" />
         </activity>
 
         <activity android:name=".notes.AddNote"></activity>
@@ -44,7 +45,9 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".notification.RingtoneService"  android:enabled="true"/>
+        <service
+            android:name=".notification.RingtoneService"
+            android:enabled="true" />
 
     </application>
 

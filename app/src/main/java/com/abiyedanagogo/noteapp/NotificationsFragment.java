@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.abiyedanagogo.noteapp.notes.AddNote;
 import com.abiyedanagogo.noteapp.notification.GroupNotification;
 import com.abiyedanagogo.noteapp.notification.NotificationAdapter;
 import com.abiyedanagogo.noteapp.notification.NotificationDatabase;
@@ -38,7 +37,7 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
         View view = inflater.inflate(R.layout.activity_notification_recycler_view, container, false);
 
         toolbar = getActivity().findViewById(R.id.toolbarFirstActivity);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setTitle("Reminders");

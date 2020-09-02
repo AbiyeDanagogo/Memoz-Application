@@ -37,7 +37,7 @@ public class NoteFragment extends Fragment implements Adapter.OnNoteListener {
         View view = inflater.inflate(R.layout.activity_main, container, false);
 
         toolbar = getActivity().findViewById(R.id.toolbarFirstActivity);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         setHasOptionsMenu(true);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setTitle("Notes");

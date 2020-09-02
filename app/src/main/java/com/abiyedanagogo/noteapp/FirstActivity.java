@@ -1,13 +1,15 @@
 package com.abiyedanagogo.noteapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * */
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -20,9 +22,9 @@ public class FirstActivity extends AppCompatActivity {
 
         int fragmentId = getIntent().getIntExtra("fragment", 1);
 
-        if (fragmentId == 1){
+        if (fragmentId == 1) {
             makeNoteFragment();
-        }else {
+        } else {
             makeNotificationsFragment();
         }
 

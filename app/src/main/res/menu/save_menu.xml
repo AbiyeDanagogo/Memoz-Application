@@ -15,6 +15,6 @@
     <item
         android:id="@+id/shareoption"
         android:title="Share"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
 </menu>

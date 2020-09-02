@@ -9,9 +9,10 @@ public class GroupNotification {
     private int hour;
     private int minute;
 
-    GroupNotification() {}
+    GroupNotification() {
+    }
 
-    GroupNotification(String name,int year, int month, int day,int hour, int minute ) {
+    GroupNotification(String name, int year, int month, int day, int hour, int minute) {
         this.name = name;
         this.year = year;
         this.month = month;
@@ -20,7 +21,7 @@ public class GroupNotification {
         this.minute = minute;
     }
 
-    GroupNotification (int id,String name,int year, int month, int day,int hour, int minute) {
+    GroupNotification(int id, String name, int year, int month, int day, int hour, int minute) {
         this.ID = id;
         this.name = name;
         this.year = year;
@@ -30,32 +31,60 @@ public class GroupNotification {
         this.minute = minute;
     }
 
-    public int getID() { return ID; }
+    public int getID() {
+        return ID;
+    }
 
-    public void setID(int ID) { this.ID = ID; }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public int getYear() { return year; }
+    public int getYear() {
+        return year;
+    }
 
-    public void setYear(int year) { this.year = year; }
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-    public int getMonth() { return month; }
+    public int getMonth() {
+        return month;
+    }
 
-    public void setMonth(int month) { this.month = month; }
+    public void setMonth(int month) {
+        this.month = month;
+    }
 
-    public int getDay() { return day; }
+    public int getDay() {
+        return day;
+    }
 
-    public void setDay(int day) { this.day = day; }
+    public void setDay(int day) {
+        this.day = day;
+    }
 
-    public int getHour() { return hour; }
+    public int getHour() {
+        return hour;
+    }
 
-    public void setHour(int hour) { this.hour = hour; }
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
 
-    public int getMinute() { return minute; }
+    public int getMinute() {
+        return minute;
+    }
 
-    public void setMinute(int minute) { this.minute = minute; }
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
 
 }

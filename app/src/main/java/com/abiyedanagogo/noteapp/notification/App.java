@@ -3,10 +3,7 @@ package com.abiyedanagogo.noteapp.notification;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.net.Uri;
 import android.os.Build;
-
-import com.abiyedanagogo.noteapp.R;
 
 public class App extends Application {
     public static final String CHANNEL_1_ID = "channel1";

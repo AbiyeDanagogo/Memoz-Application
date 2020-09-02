@@ -10,7 +10,9 @@ public class Note implements Parcelable {
     private String date;
     private String time;
 
-    Note() {}
+    Note() {
+    }
+
     Note(String title, String content, String date, String time) {
         this.title = title;
         this.content = content;
@@ -19,7 +21,7 @@ public class Note implements Parcelable {
 
     }
 
-    Note(long id, String title, String content, String date, String time){
+    Note(long id, String title, String content, String date, String time) {
         this.ID = id;
         this.title = title;
         this.content = content;
@@ -51,17 +53,25 @@ public class Note implements Parcelable {
         }
     };
 
-    public Long getID() { return ID; }
+    public Long getID() {
+        return ID;
+    }
 
-    public void setID(Long ID) { this.ID = ID; }
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
 
-    public String getTitle() { return title; }
+    public String getTitle() {
+        return title;
+    }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getContent() { return content; }
+    public String getContent() {
+        return content;
+    }
 
     public void setContent(String content) {
         this.content = content;

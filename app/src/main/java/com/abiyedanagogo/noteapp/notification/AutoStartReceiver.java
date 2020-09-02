@@ -1,27 +1,18 @@
 package com.abiyedanagogo.noteapp.notification;
 
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
-import com.abiyedanagogo.noteapp.R;
 
 import java.util.Calendar;
 import java.util.List;
 
-import static com.abiyedanagogo.noteapp.notification.App.CHANNEL_1_ID;
-
 public class AutoStartReceiver extends BroadcastReceiver {
 
     List<GroupNotification> groupNotifications;
+
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -31,7 +22,7 @@ public class AutoStartReceiver extends BroadcastReceiver {
         groupNotifications = db.getNotifications();
 
 
-        for (GroupNotification notification: groupNotifications) {
+        for (GroupNotification notification : groupNotifications) {
             int id = notification.getID();
             String message = notification.getName();
             int year = notification.getYear();
@@ -57,13 +48,10 @@ public class AutoStartReceiver extends BroadcastReceiver {
                 intent1.putExtra("message", message);
                 intent1.putExtra("alarmid", id);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(context, id, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
-                alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() ,pendingIntent);
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
             }
 
         }
-
-
-
 
 
     }

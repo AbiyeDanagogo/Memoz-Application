@@ -31,13 +31,13 @@ public class NotificationDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "create table " + DATABASE_TABLE1+ "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT, YEAR INTEGER, MONTH INTEGER, DAY INTEGER, HOUR INTEGER, MINUTE INTEGER, ALARM INTEGER)";
+        String query = "create table " + DATABASE_TABLE1 + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT, YEAR INTEGER, MONTH INTEGER, DAY INTEGER, HOUR INTEGER, MINUTE INTEGER, ALARM INTEGER)";
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(oldVersion >= newVersion)
+        if (oldVersion >= newVersion)
             return;
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE1);
         onCreate(db);
@@ -62,16 +62,15 @@ public class NotificationDatabase extends SQLiteOpenHelper {
     }
 
 
-
     public List<GroupNotification> getNotifications() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<GroupNotification> allNotes = new ArrayList<>();
         // select (all = *) from databaseName
-        String query = "SELECT * FROM "+ DATABASE_TABLE1;
+        String query = "SELECT * FROM " + DATABASE_TABLE1;
         Cursor cursor = db.rawQuery(query, null);
 
-        if (cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 GroupNotification note = new GroupNotification();
                 note.setID(cursor.getInt(0));
                 note.setName(cursor.getString(1));
@@ -81,7 +80,7 @@ public class NotificationDatabase extends SQLiteOpenHelper {
                 note.setHour(cursor.getInt(5));
                 note.setMinute(cursor.getInt(6));
                 allNotes.add(note);
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         return allNotes;
@@ -90,8 +89,8 @@ public class NotificationDatabase extends SQLiteOpenHelper {
     public GroupNotification getNotification(long id) {
         // select * from databaseTable whwere id=
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(DATABASE_TABLE1, new String[]{key_id, name, year,month,day,hour,minute}, key_id+"=?",
-                new String[]{String.valueOf(id)}, null, null, null );
+        Cursor cursor = db.query(DATABASE_TABLE1, new String[]{key_id, name, year, month, day, hour, minute}, key_id + "=?",
+                new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
@@ -100,14 +99,12 @@ public class NotificationDatabase extends SQLiteOpenHelper {
     }
 
 
-
-
-    public Integer deleteNotification (String id) {
+    public Integer deleteNotification(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(DATABASE_TABLE1, "ID = ?", new String[] {id});
+        return db.delete(DATABASE_TABLE1, "ID = ?", new String[]{id});
     }
 
-    public boolean updateNotification (String id, GroupNotification groupNotification) {
+    public boolean updateNotification(String id, GroupNotification groupNotification) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -119,7 +116,7 @@ public class NotificationDatabase extends SQLiteOpenHelper {
         contentValues.put(hour, groupNotification.getHour());
         contentValues.put(minute, groupNotification.getMinute());
 
-        db.update(DATABASE_TABLE1, contentValues, "ID = ?", new String[] {id});
+        db.update(DATABASE_TABLE1, contentValues, "ID = ?", new String[]{id});
         return true;
     }
 
@@ -130,19 +127,19 @@ public class NotificationDatabase extends SQLiteOpenHelper {
         contentValues.put(key_id, id);
         contentValues.put(alarmcheck, check);
 
-        db.update(DATABASE_TABLE1, contentValues, "ID = ?", new String[] {id});
+        db.update(DATABASE_TABLE1, contentValues, "ID = ?", new String[]{id});
         return true;
     }
 
 
     public int getAlarmCheck(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(DATABASE_TABLE1, new String[]{alarmcheck}, key_id+"=?",
-                new String[]{String.valueOf(id)}, null, null, null );
+        Cursor cursor = db.query(DATABASE_TABLE1, new String[]{alarmcheck}, key_id + "=?",
+                new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        return  cursor.getInt(0);
+        return cursor.getInt(0);
     }
 
 }

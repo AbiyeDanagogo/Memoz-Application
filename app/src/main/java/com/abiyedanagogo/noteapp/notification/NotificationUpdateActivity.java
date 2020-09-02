@@ -6,14 +6,12 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -33,7 +31,7 @@ import com.abiyedanagogo.noteapp.R;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class NotificationUpdateActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener  {
+public class NotificationUpdateActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
     Calendar c;
     private TextView chosenTimeText;
@@ -52,7 +50,7 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
         Intent intent = getIntent();
-        ID = intent.getIntExtra("ID",0);
+        ID = intent.getIntExtra("ID", 0);
         Log.d("abiyeisamanwho78", "ID is " + ID);
 
         Intent serviceIntent = new Intent(this, RingtoneService.class);
@@ -66,10 +64,10 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
         messageText = findViewById(R.id.messageTextMultiline);
         messageText.setSingleLine(false);
 
-        String time = pad(groupNotification.getDay()) +"/"+pad(groupNotification.getMonth()+1)+"/"+groupNotification.getYear()+"  "+pad(groupNotification.getHour())+":"+pad(groupNotification.getMinute());
+        String time = pad(groupNotification.getDay()) + "/" + pad(groupNotification.getMonth() + 1) + "/" + groupNotification.getYear() + "  " + pad(groupNotification.getHour()) + ":" + pad(groupNotification.getMinute());
 
 
-        chosenTimeText.setText("Set for "+time);
+        chosenTimeText.setText("Set for " + time);
         messageText.setText(groupNotification.getName());
 
 
@@ -88,7 +86,6 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
 
 
     }
-
 
 
     private void cancelAlarm() {
@@ -141,11 +138,10 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
 
         if (c.before(Calendar.getInstance())) {
             Toast.makeText(this, "Please choose a later time", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             NotificationDatabase db = new NotificationDatabase(this);
             GroupNotification groupNotification1 = new GroupNotification(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
-            boolean isupdated = db.updateNotification(String.valueOf(ID), groupNotification1 );
+            boolean isupdated = db.updateNotification(String.valueOf(ID), groupNotification1);
 
             String timeText = "Reminder set for " + DateFormat.getDateInstance(DateFormat.SHORT).format(c.getTime()) + " ";
             timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
@@ -160,8 +156,7 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
             Toast.makeText(this, timeText, Toast.LENGTH_SHORT).show();
 
 
-
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() ,pendingIntent);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
             goToMain();
         }
 
@@ -169,8 +164,8 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
     }
 
     public String pad(int i) {
-        if(i<10)
-            return "0"+i;
+        if (i < 10)
+            return "0" + i;
         return String.valueOf(i);
     }
 
@@ -188,18 +183,17 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
             cancelAlarm();
         }
         if (item.getItemId() == R.id.save) {
-            if (c == null){
+            if (c == null) {
                 Toast.makeText(NotificationUpdateActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            } else {
                 startAlarm(c);
             }
         }
-        if (item.getItemId() == R.id.shareoption){
+        if (item.getItemId() == R.id.shareoption) {
             //Toast.makeText(this, "This is share button", Toast.LENGTH_SHORT).show();
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, messageText.getText().toString() );
+            sendIntent.putExtra(Intent.EXTRA_TEXT, messageText.getText().toString());
             sendIntent.setType("text/plain");
 
             Intent shareIntent = Intent.createChooser(sendIntent, null);

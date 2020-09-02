@@ -2,21 +2,15 @@ package com.abiyedanagogo.noteapp.notification;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -28,8 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.abiyedanagogo.noteapp.FirstActivity;
@@ -37,9 +29,6 @@ import com.abiyedanagogo.noteapp.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-
-import static com.abiyedanagogo.noteapp.notification.App.CHANNEL_1_ID;
-import static com.abiyedanagogo.noteapp.notification.App.CHANNEL_2_ID;
 
 public class TimePickerMainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
@@ -64,7 +53,6 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
         messageText.setSingleLine(false);
 
 
-
         ImageButton timePickerButton = findViewById(R.id.imageButtonTimePicker);
 
         timePickerButton.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +63,6 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
         });
-
 
 
     }
@@ -108,8 +95,7 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
 
         if (c.before(Calendar.getInstance())) {
             Toast.makeText(this, "Please choose a later time", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             GroupNotification groupNotification = new GroupNotification(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
             NotificationDatabase db = new NotificationDatabase(this);
             ID = db.addNotification(groupNotification);
@@ -125,13 +111,10 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
             intent.putExtra("message", messageText.getText().toString());
             intent.putExtra("alarmid", ID.intValue());
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, ID.intValue(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            Toast.makeText(this, timeText , Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, timeText, Toast.LENGTH_SHORT).show();
 
 
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis() ,pendingIntent);
-
-
-
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
 
 
             goToMain();
@@ -153,18 +136,17 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
             onBackPressed();
         }
         if (item.getItemId() == R.id.save) {
-            if (c == null){
+            if (c == null) {
                 Toast.makeText(TimePickerMainActivity.this, "Please set Time", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            } else {
                 startAlarm(c);
             }
         }
-        if (item.getItemId() == R.id.shareoption){
+        if (item.getItemId() == R.id.shareoption) {
             //Toast.makeText(this, "This is share button", Toast.LENGTH_SHORT).show();
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, messageText.getText().toString() );
+            sendIntent.putExtra(Intent.EXTRA_TEXT, messageText.getText().toString());
             sendIntent.setType("text/plain");
 
             Intent shareIntent = Intent.createChooser(sendIntent, null);
@@ -172,7 +154,6 @@ public class TimePickerMainActivity extends AppCompatActivity implements TimePic
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private void goToMain() {
