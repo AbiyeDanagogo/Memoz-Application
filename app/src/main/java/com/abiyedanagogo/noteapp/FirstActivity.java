@@ -13,22 +13,23 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class FirstActivity extends AppCompatActivity {
 
-    Button reminderButton, noteButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+        //Checks for the fragment id with intent to determine which of the two fragments will be shown
         int fragmentId = getIntent().getIntExtra("fragment", 1);
 
+        //If the fragment id is 1 the note fragment is shown else the notification fragment is shown
         if (fragmentId == 1) {
             makeNoteFragment();
         } else {
             makeNotificationsFragment();
         }
 
-        reminderButton = findViewById(R.id.reminderButton);
+        //Button to switch to notification fragment is defined and an onclicklistener is set
+        Button reminderButton = findViewById(R.id.reminderButton);
         reminderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +37,8 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
-        noteButton = findViewById(R.id.noteButton);
+        //Button to switch to notes fragment is defined and an onclicklistener is set
+        Button noteButton = findViewById(R.id.noteButton);
         noteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +48,7 @@ public class FirstActivity extends AppCompatActivity {
 
     }
 
+    //Function to create the notes fragment is defined
     public void makeNoteFragment() {
         NoteFragment noteFragment = new NoteFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -54,6 +57,7 @@ public class FirstActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    //Function to create the notifications fragment is defined
     public void makeNotificationsFragment() {
         NotificationsFragment notificationsFragment = new NotificationsFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
