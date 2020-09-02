@@ -20,6 +20,12 @@ import com.abiyedanagogo.noteapp.R;
 
 import static com.abiyedanagogo.noteapp.notification.App.CHANNEL_1_ID;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class extends service and it is what allows our application to start the ringtone and vibrate even if the
+ * application is closed by creating a foreground service when it recieves an alert from the alert receiver.
+ * */
+
 public class RingtoneService extends Service {
 
     private Ringtone ringtone;

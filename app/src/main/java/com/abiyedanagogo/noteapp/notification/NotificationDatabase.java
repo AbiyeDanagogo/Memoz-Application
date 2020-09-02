@@ -10,6 +10,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class is used to create a database to store each notification
+ * */
+
 public class NotificationDatabase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION1 = 2;
     public static final String DATABASE_NAME1 = "notificationdb";
@@ -132,7 +137,7 @@ public class NotificationDatabase extends SQLiteOpenHelper {
     }
 
 
-    public int getAlarmCheck(int id) {
+    public int checkAlarm(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(DATABASE_TABLE1, new String[]{alarmcheck}, key_id + "=?",
                 new String[]{String.valueOf(id)}, null, null, null);

@@ -5,14 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * When the time set for the notification is reached a broadcast is received and the code here is performed.
+ * */
+
 public class AlertReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
         String message = intent.getStringExtra("message");
         int id = intent.getIntExtra("alarmid", 1);
 
+        //The block of commented code below is for future use
         /*Intent mainIntent = new Intent(context, FirstActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(FirstActivity.class);

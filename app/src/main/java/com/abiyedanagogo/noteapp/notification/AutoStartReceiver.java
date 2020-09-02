@@ -9,6 +9,12 @@ import android.content.Intent;
 import java.util.Calendar;
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This is a broadcast that is sent whenever the phone is restarted.
+ * This is to make sure that the notifcations are still sent even if the device is restarted.
+ * */
+
 public class AutoStartReceiver extends BroadcastReceiver {
 
     List<NotificationClass> notificationClasses;
@@ -31,9 +37,7 @@ public class AutoStartReceiver extends BroadcastReceiver {
             int hour = notification.getHour();
             int minute = notification.getMinute();
 
-            //Log.d("thisisoneofmylogs" + id, "onReceive: "+year +" "+month+" "+day+" "+hour+" "+minute);
-
-            if (db.getAlarmCheck(id) != 1) {
+            if (db.checkAlarm(id) != 1) {
                 Calendar c = Calendar.getInstance();
 
                 c.set(Calendar.YEAR, year);

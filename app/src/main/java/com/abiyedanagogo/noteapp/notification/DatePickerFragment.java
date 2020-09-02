@@ -10,6 +10,11 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class allows us to use the date picker
+ * */
+
 public class DatePickerFragment extends DialogFragment {
     @NonNull
     @Override

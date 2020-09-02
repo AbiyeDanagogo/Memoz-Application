@@ -31,6 +31,11 @@ import com.abiyedanagogo.noteapp.R;
 import java.text.DateFormat;
 import java.util.Calendar;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This Activity is used to update or delete notifications that are already in the database.
+ * */
+
 public class UpdateNotificationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
     Calendar c;

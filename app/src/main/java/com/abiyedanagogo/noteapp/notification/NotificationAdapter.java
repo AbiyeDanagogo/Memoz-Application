@@ -15,6 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * */
+
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
     LayoutInflater inflater;
     List<NotificationClass> notificationClasses;

@@ -1,5 +1,11 @@
 package com.abiyedanagogo.noteapp.notification;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class creates the properties and funmctions of a notification.
+ * Each notification has a year, month, day, hour and minute for the specific time it will ring and each also has a name
+ * */
+
 public class NotificationClass {
     private int ID;
     private String name;

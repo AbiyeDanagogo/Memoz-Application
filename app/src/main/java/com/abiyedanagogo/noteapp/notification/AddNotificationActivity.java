@@ -30,6 +30,11 @@ import com.abiyedanagogo.noteapp.R;
 import java.text.DateFormat;
 import java.util.Calendar;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This activity is for adding new notifications into the database
+ * */
+
 public class AddNotificationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     Toolbar toolbar;
     Calendar c;
