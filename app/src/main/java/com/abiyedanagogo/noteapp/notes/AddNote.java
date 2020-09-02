@@ -20,6 +20,11 @@ import com.abiyedanagogo.noteapp.R;
 
 import java.util.Calendar;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This activity is used when a user clicks on the add a note button
+ * */
+
 public class AddNote extends AppCompatActivity {
 
     Toolbar toolbar;

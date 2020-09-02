@@ -3,6 +3,12 @@ package com.abiyedanagogo.noteapp.notes;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This class defines a note and gives it attributes and properties
+ * The properties of notes are an ID, title, content, date created, time created
+ * */
+
 public class Note implements Parcelable {
     private Long ID;
     private String title;

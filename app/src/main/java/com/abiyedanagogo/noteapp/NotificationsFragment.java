@@ -17,11 +17,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.abiyedanagogo.noteapp.notification.GroupNotification;
+import com.abiyedanagogo.noteapp.notification.NotificationClass;
 import com.abiyedanagogo.noteapp.notification.NotificationAdapter;
 import com.abiyedanagogo.noteapp.notification.NotificationDatabase;
 import com.abiyedanagogo.noteapp.notification.NotificationUpdateActivity;
-import com.abiyedanagogo.noteapp.notification.TimePickerMainActivity;
+import com.abiyedanagogo.noteapp.notification.AddNotificationActivity;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
     Toolbar toolbar;
     RecyclerView recyclerView;
     NotificationAdapter notificationAdapter;
-    List<GroupNotification> groupNotification;
+    List<NotificationClass> notificationClass;
 
     @Nullable
     @Override
@@ -47,12 +47,11 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
         toolbar.setTitle("Reminders");
 
         NotificationDatabase db = new NotificationDatabase(getActivity());
-
-        groupNotification = db.getNotifications();
+        notificationClass = db.getNotifications();
 
         recyclerView = view.findViewById(R.id.listOfNotifications);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        notificationAdapter = new NotificationAdapter(getActivity(), groupNotification, this);
+        notificationAdapter = new NotificationAdapter(getActivity(), notificationClass, this);
         recyclerView.setAdapter(notificationAdapter);
 
 
@@ -68,7 +67,7 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.add) {
-            Intent i = new Intent(getActivity(), TimePickerMainActivity.class);
+            Intent i = new Intent(getActivity(), AddNotificationActivity.class);
             startActivity(i);
             //Toast.makeText(this, "Add button is clicked", Toast.LENGTH_SHORT).show();
         }
@@ -78,7 +77,7 @@ public class NotificationsFragment extends Fragment implements NotificationAdapt
     @Override
     public void onNotificationClick(int position) {
         Intent intent = new Intent(getActivity(), NotificationUpdateActivity.class);
-        intent.putExtra("ID", groupNotification.get(position).getID());
+        intent.putExtra("ID", notificationClass.get(position).getID());
         startActivity(intent);
 
     }

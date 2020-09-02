@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AutoStartReceiver extends BroadcastReceiver {
 
-    List<GroupNotification> groupNotifications;
+    List<NotificationClass> notificationClasses;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -19,10 +19,10 @@ public class AutoStartReceiver extends BroadcastReceiver {
         NotificationDatabase db = new NotificationDatabase(context);
 
 
-        groupNotifications = db.getNotifications();
+        notificationClasses = db.getNotifications();
 
 
-        for (GroupNotification notification : groupNotifications) {
+        for (NotificationClass notification : notificationClasses) {
             int id = notification.getID();
             String message = notification.getName();
             int year = notification.getYear();

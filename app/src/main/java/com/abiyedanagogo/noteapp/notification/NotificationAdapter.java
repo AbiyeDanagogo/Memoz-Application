@@ -17,12 +17,12 @@ import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
     LayoutInflater inflater;
-    List<GroupNotification> groupNotifications;
+    List<NotificationClass> notificationClasses;
     OnNotificationListener onNotificationListener;
 
-    public NotificationAdapter(Context context, List<GroupNotification> groupNotifications, OnNotificationListener onNotificationListener) {
+    public NotificationAdapter(Context context, List<NotificationClass> notificationClasses, OnNotificationListener onNotificationListener) {
         this.inflater = LayoutInflater.from(context);
-        this.groupNotifications = groupNotifications;
+        this.notificationClasses = notificationClasses;
         this.onNotificationListener = onNotificationListener;
     }
 
@@ -35,12 +35,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
-        String name = groupNotifications.get(position).getName();
-        int year = groupNotifications.get(position).getYear();
-        int month = groupNotifications.get(position).getMonth();
-        int day = groupNotifications.get(position).getDay();
-        int hour = groupNotifications.get(position).getHour();
-        int minute = groupNotifications.get(position).getMinute();
+        String name = notificationClasses.get(position).getName();
+        int year = notificationClasses.get(position).getYear();
+        int month = notificationClasses.get(position).getMonth();
+        int day = notificationClasses.get(position).getDay();
+        int hour = notificationClasses.get(position).getHour();
+        int minute = notificationClasses.get(position).getMinute();
 
         holder.nName.setText(name);
         holder.nYear.setText(String.valueOf(year));
@@ -55,7 +55,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public int getItemCount() {
-        return groupNotifications.size();
+        return notificationClasses.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

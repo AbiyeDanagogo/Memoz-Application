@@ -1,6 +1,6 @@
 package com.abiyedanagogo.noteapp.notification;
 
-public class GroupNotification {
+public class NotificationClass {
     private int ID;
     private String name;
     private int year;
@@ -9,10 +9,10 @@ public class GroupNotification {
     private int hour;
     private int minute;
 
-    GroupNotification() {
+    NotificationClass() {
     }
 
-    GroupNotification(String name, int year, int month, int day, int hour, int minute) {
+    NotificationClass(String name, int year, int month, int day, int hour, int minute) {
         this.name = name;
         this.year = year;
         this.month = month;
@@ -21,7 +21,7 @@ public class GroupNotification {
         this.minute = minute;
     }
 
-    GroupNotification(int id, String name, int year, int month, int day, int hour, int minute) {
+    NotificationClass(int id, String name, int year, int month, int day, int hour, int minute) {
         this.ID = id;
         this.name = name;
         this.year = year;

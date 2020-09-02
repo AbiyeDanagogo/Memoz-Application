@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".notification.TimePickerMainActivity" />
+        <activity android:name=".notification.AddNotificationActivity" />
         <activity
             android:name=".notification.NotificationUpdateActivity"
             android:parentActivityName=".FirstActivity">

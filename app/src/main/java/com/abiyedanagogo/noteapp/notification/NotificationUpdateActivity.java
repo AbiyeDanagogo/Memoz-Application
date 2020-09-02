@@ -36,7 +36,7 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
     Calendar c;
     private TextView chosenTimeText;
     int ID;
-    GroupNotification groupNotification;
+    NotificationClass notificationClass;
     EditText messageText;
 
     @Override
@@ -57,18 +57,18 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
         stopService(serviceIntent);
 
         NotificationDatabase db = new NotificationDatabase(this);
-        groupNotification = new GroupNotification();
-        groupNotification = db.getNotification(ID);
+        notificationClass = new NotificationClass();
+        notificationClass = db.getNotification(ID);
 
         chosenTimeText = findViewById(R.id.textChooseTime);
         messageText = findViewById(R.id.messageTextMultiline);
         messageText.setSingleLine(false);
 
-        String time = pad(groupNotification.getDay()) + "/" + pad(groupNotification.getMonth() + 1) + "/" + groupNotification.getYear() + "  " + pad(groupNotification.getHour()) + ":" + pad(groupNotification.getMinute());
+        String time = pad(notificationClass.getDay()) + "/" + pad(notificationClass.getMonth() + 1) + "/" + notificationClass.getYear() + "  " + pad(notificationClass.getHour()) + ":" + pad(notificationClass.getMinute());
 
 
         chosenTimeText.setText("Set for " + time);
-        messageText.setText(groupNotification.getName());
+        messageText.setText(notificationClass.getName());
 
 
         ImageButton timePickerButton = findViewById(R.id.imageButtonTimePicker);
@@ -140,8 +140,8 @@ public class NotificationUpdateActivity extends AppCompatActivity implements Tim
             Toast.makeText(this, "Please choose a later time", Toast.LENGTH_SHORT).show();
         } else {
             NotificationDatabase db = new NotificationDatabase(this);
-            GroupNotification groupNotification1 = new GroupNotification(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
-            boolean isupdated = db.updateNotification(String.valueOf(ID), groupNotification1);
+            NotificationClass notificationClass1 = new NotificationClass(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+            boolean isupdated = db.updateNotification(String.valueOf(ID), notificationClass1);
 
             String timeText = "Reminder set for " + DateFormat.getDateInstance(DateFormat.SHORT).format(c.getTime()) + " ";
             timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());

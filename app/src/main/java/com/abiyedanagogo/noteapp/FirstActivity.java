@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 /*
  * Created by Abiye Danagogo on 20/04/2020.
+ * This is the first activity that is displayed to the user when the application is opened
  * */
 
 public class FirstActivity extends AppCompatActivity {

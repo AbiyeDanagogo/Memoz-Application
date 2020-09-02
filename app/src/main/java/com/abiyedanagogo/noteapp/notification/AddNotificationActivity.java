@@ -96,9 +96,9 @@ public class AddNotificationActivity extends AppCompatActivity implements TimePi
         if (c.before(Calendar.getInstance())) {
             Toast.makeText(this, "Please choose a later time", Toast.LENGTH_SHORT).show();
         } else {
-            GroupNotification groupNotification = new GroupNotification(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+            NotificationClass notificationClass = new NotificationClass(messageText.getText().toString(), c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
             NotificationDatabase db = new NotificationDatabase(this);
-            ID = db.addNotification(groupNotification);
+            ID = db.addNotification(notificationClass);
             //int ID1 = ID.intValue();
 
 

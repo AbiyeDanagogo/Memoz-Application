@@ -13,6 +13,12 @@ import com.abiyedanagogo.noteapp.R;
 
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This is a recycler view adapter.
+ * It is used to create a recycler view in android
+ * */
+
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     LayoutInflater inflater;
     List<Note> notes;

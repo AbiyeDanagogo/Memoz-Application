@@ -10,6 +10,11 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * In this class a database to store all notes is created using the SQLiteOpenHelper
+ * */
+
 public class NoteDatabase extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 2;
@@ -47,6 +52,7 @@ public class NoteDatabase extends SQLiteOpenHelper {
 
     }
 
+    //This function is called to add notes to the database
     public long addNote(Note note) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues c = new ContentValues();
@@ -60,6 +66,7 @@ public class NoteDatabase extends SQLiteOpenHelper {
         return ID;
     }
 
+    // This method returns a single note when specified by the id number
     public Note getNote(long id) {
         // select * from databaseTable whwere id=
         SQLiteDatabase db = this.getReadableDatabase();
@@ -72,6 +79,7 @@ public class NoteDatabase extends SQLiteOpenHelper {
                 cursor.getString(3), cursor.getString(4));
     }
 
+    //This method returns a list of all notes stored on the database
     public List<Note> getNotes() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<Note> allNotes = new ArrayList<>();
@@ -94,6 +102,7 @@ public class NoteDatabase extends SQLiteOpenHelper {
         return allNotes;
     }
 
+    //This method updates data stored on a specified note
     public boolean updateData(String id, Note note) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -109,6 +118,7 @@ public class NoteDatabase extends SQLiteOpenHelper {
         return true;
     }
 
+    //This method deletes note from database
     public Integer deleteData(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(DATABASE_TABLE, "id = ?", new String[]{id});

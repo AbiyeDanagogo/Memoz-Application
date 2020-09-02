@@ -20,6 +20,12 @@ import com.abiyedanagogo.noteapp.R;
 
 import java.util.Calendar;
 
+/*
+ * Created by Abiye Danagogo on 20/04/2020.
+ * This is the Activity that is used when a user opens a note that has already been saved with the intention of either
+ * updating or deleting the note
+ * */
+
 public class UpdateActivity extends AppCompatActivity {
     Toolbar toolbar;
     Note note;
