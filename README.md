@@ -4,12 +4,12 @@ This is great application for productivity. It allows users to easily make notes
 
 Available on The Google Play Store: https://play.google.com/store/apps/details?id=com.abiyedanagogo.noteapp
 
-# Current Version
+### Current Version
 1.0
 
-# Requires Android
+### Requires Android
 5.1 and up
 
-# This app has access to:
+### This app has access to:
 * run at startup
 * control vibration
