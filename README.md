@@ -11,6 +11,5 @@ Available on The Google Play Store: https://play.google.com/store/apps/details?i
 5.1 and up
 
 # This app has access to:
-*Other
-*run at startup
-*control vibration
+* run at startup
+* control vibration
